@@ -97,21 +97,6 @@ function RegisterPage() {
             className="w-full p-2 border border-gray-300 rounded"
           />
         </div>
-
-        <div className="mb-4">
-          <label htmlFor="role" className="block mb-1 font-medium">Perfil</label>
-          <select
-            id="role"
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded"
-          >
-            <option value="USER">Normal</option>
-            <option value="ADMIN">Admin</option>
-          </select>
-        </div>
-
         <button 
           type="submit"
           className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
