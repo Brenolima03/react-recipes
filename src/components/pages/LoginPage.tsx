@@ -25,7 +25,7 @@ function LoginPage() {
       {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '15px' }}>
-          <label htmlFor="login" style={{ display: 'block', marginBottom: '5px' }}>Username</label>
+          <label htmlFor="login" style={{ display: 'block', marginBottom: '5px' }}>Nome de usuário</label>
           <input
             type="text"
             id="login"
@@ -38,7 +38,7 @@ function LoginPage() {
         </div>
         
         <div style={{ marginBottom: '15px' }}>
-          <label htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>Password</label>
+          <label htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>Senha</label>
           <input
             type="password"
             id="password"

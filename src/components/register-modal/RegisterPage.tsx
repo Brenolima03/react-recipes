@@ -65,7 +65,7 @@ function RegisterPage() {
       >
         ×
       </button>
-      <h2 className="text-2xl font-semibold mb-4">Create Account</h2>
+      <h2 className="text-2xl font-semibold mb-4">Cadastro</h2>
 
       {error && (
         <div className="text-red-500 mb-3">{error}</div>
@@ -86,7 +86,7 @@ function RegisterPage() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="password" className="block mb-1 font-medium">Password</label>
+          <label htmlFor="password" className="block mb-1 font-medium">Senha</label>
           <input
             type="password"
             id="password"
@@ -99,7 +99,7 @@ function RegisterPage() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="role" className="block mb-1 font-medium">Role</label>
+          <label htmlFor="role" className="block mb-1 font-medium">Perfil</label>
           <select
             id="role"
             name="role"
@@ -107,7 +107,7 @@ function RegisterPage() {
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded"
           >
-            <option value="USER">User</option>
+            <option value="USER">Normal</option>
             <option value="ADMIN">Admin</option>
           </select>
         </div>
@@ -116,7 +116,7 @@ function RegisterPage() {
           type="submit"
           className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
         >
-          Register
+          Cadastrar
         </button>
 
         <button
@@ -124,7 +124,7 @@ function RegisterPage() {
           onClick={() => navigate('/')}
           className="w-full py-2 mt-3 bg-gray-300 text-black rounded hover:bg-gray-400"
         >
-          Cancel
+          Cancelar
         </button>
       </form>
     </div>

@@ -32,7 +32,7 @@ export function HomePage() {
         ) : (
           <>
             <Link to="/register">
-              <button>Register</button>
+              <button>Cadastro</button>
             </Link>
             <Link to="/login">
               <button>Login</button>
