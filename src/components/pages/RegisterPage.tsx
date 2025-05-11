@@ -58,22 +58,14 @@ function RegisterPage() {
   };
 
   return (
-    <div className="max-w-[500px] mx-auto p-5 relative bg-white rounded shadow-md">
-      <button
-        onClick={() => navigate('/')}
-        className="absolute top-2 right-2 text-white bg-red-500 hover:bg-red-600 rounded-full w-8 h-8 flex items-center justify-center z-10"
-      >
-        ×
-      </button>
-      <h2 className="text-2xl font-semibold mb-4">Cadastro</h2>
+    <div className="login-container">
+      <h2>Cadastro</h2>
 
-      {error && (
-        <div className="text-red-500 mb-3">{error}</div>
-      )}
+      {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
 
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="login" className="block mb-1 font-medium">Login</label>
+        <div style={{ marginBottom: '15px' }}>
+          <label htmlFor="login" style={{ display: 'block', marginBottom: '5px' }}>Nome de usuário</label>
           <input
             type="text"
             id="login"
@@ -81,12 +73,12 @@ function RegisterPage() {
             value={formData.login}
             onChange={handleChange}
             required
-            className="w-full p-2 border border-gray-300 rounded"
+            style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
           />
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="password" className="block mb-1 font-medium">Senha</label>
+        <div style={{ marginBottom: '15px' }}>
+          <label htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>Senha</label>
           <input
             type="password"
             id="password"
@@ -94,12 +86,21 @@ function RegisterPage() {
             value={formData.password}
             onChange={handleChange}
             required
-            className="w-full p-2 border border-gray-300 rounded"
+            style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
           />
         </div>
+
         <button 
           type="submit"
-          className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          style={{
+            width: '100%',
+            padding: '10px',
+            backgroundColor: '#0077cc',
+            color: 'white',
+            border: 'none',
+            cursor: 'pointer',
+            borderRadius: '4px'
+          }}
         >
           Cadastrar
         </button>
@@ -107,7 +108,16 @@ function RegisterPage() {
         <button
           type="button"
           onClick={() => navigate('/')}
-          className="w-full py-2 mt-3 bg-gray-300 text-black rounded hover:bg-gray-400"
+          style={{
+            width: '100%',
+            padding: '10px',
+            backgroundColor: '#ddd',
+            color: '#333',
+            border: 'none',
+            cursor: 'pointer',
+            borderRadius: '4px',
+            marginTop: '10px'
+          }}
         >
           Cancelar
         </button>
