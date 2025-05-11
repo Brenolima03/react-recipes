@@ -8,11 +8,13 @@ interface CardProps {
 }
 
 export function Card({ name, description, image, onClick }: CardProps) {
+  const truncatedDescription = description && description.length > 30 ? `${description.slice(0, 30)}...` : description;
+
   return (
     <div className="card" onClick={onClick}>
       <img src={image} alt={name} />
       <h2>{name}</h2>
-      <p>{description.length > 30 ? `${description.slice(0, 30)}...` : description}</p>
+      <p>{truncatedDescription}</p>
     </div>
   );
 }
