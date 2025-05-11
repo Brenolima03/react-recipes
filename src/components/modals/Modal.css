@@ -8,14 +8,18 @@
   justify-content: center;
   z-index: 999;
   transition: opacity 0.3s ease; /* Smooth fade effect for opening and closing */
+  padding-top: 50px; /* Prevents the modal from crossing the top edge */
 }
 
+/* Modal body with scrolling and adjusted positioning */
 .modal-overlay .modal-body {
   background-color: #fff;
   padding: 30px;
   width: 50%; /* Adjusted width */
   min-width: 400px; /* Ensure a minimum width */
   max-width: 600px; /* Prevent it from becoming too wide */
+  max-height: 80vh; /* Set maximum height to 80% of the viewport */
+  overflow-y: auto; /* Enables scrolling when content overflows */
   border-radius: 16px; /* Slightly more rounded corners */
   display: flex;
   flex-direction: column;
@@ -35,52 +39,11 @@
   text-transform: capitalize; /* Title transformation */
 }
 
-/* Input fields container */
-.modal-overlay .modal-body .input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Space between inputs */
-  width: 100%;
-}
-
 /* Label styling */
-.modal-overlay .modal-body label {
-  color: #666; /* Lighter color for labels */
+.modal-overlay .modal-body label, .modal-overlay .modal-body p {
+  color: black;
   font-weight: 500;
   font-size: 16px;
-}
-
-/* Input field styles (Removed color and background-color adjustments) */
-.modal-overlay .modal-body input {
-  padding: 14px;
-  border: 2px solid #ddd;
-  font-size: 16px;
-  border-radius: 12px;
-  width: 100%;
-  transition: border-color 0.3s ease-in-out; /* Smooth border color change */
-}
-
-.modal-overlay .modal-body input:focus {
-  border-color: #3a44f8; /* Blue border on focus */
-  outline: none;
-}
-
-/* Button styling */
-.modal-overlay .modal-body .btn-secondary {
-  padding: 14px;
-  background-color: #3a44f8;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  width: 100%;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 40px;
-}
-
-.modal-overlay .modal-body .btn-secondary:hover {
-  background-color: #2c38d6; /* Darker shade on hover */
 }
 
 /* Close button positioning */

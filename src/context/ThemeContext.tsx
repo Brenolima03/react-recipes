@@ -6,7 +6,7 @@ type ThemeContextType = {
 };
 
 export const ThemeContext = createContext<ThemeContextType>({
-  darkMode: false,
+  darkMode: true,  // Default to dark mode (inverted logic)
   toggleDarkMode: () => {}
 });
 
@@ -15,13 +15,11 @@ type ThemeProviderProps = {
 };
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    // Check if user has a saved preference
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    setDarkMode(savedDarkMode);
-  }, []);
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    // Default dark mode to true (dark mode is enabled initially)
+    const savedDarkMode = localStorage.getItem('darkMode');
+    return savedDarkMode === 'false' ? false : true;  // Inverted logic
+  });
 
   useEffect(() => {
     // Update body class and save preference when dark mode changes
@@ -34,7 +32,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   }, [darkMode]);
 
   const toggleDarkMode = () => {
-    setDarkMode(prev => !prev);
+    setDarkMode(prev => !prev); // Toggle dark mode state
   };
 
   return (

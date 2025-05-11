@@ -22,7 +22,7 @@
   --transition: all 0.3s ease;
 }
 
-/* Dark mode variables */
+/* Dark mode variables (inverted logic) */
 .dark-mode {
   --primary-color: #ff8787;
   --secondary-color: #55e6db;
