@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 import { URL_BASE } from '../config';
-import { MealData } from "../interface/MealData";
+import { MealDataResponse } from "../interface/MealData";
 
-const fetchData = async (): AxiosPromise<MealData[]> => {
-  const response = axios.get(URL_BASE + "/meals");
-  return response;
+const fetchData = async (): AxiosPromise<MealDataResponse> => {
+  return axios.get(URL_BASE + "/meals");
 }
 
 export function useMealData() {
@@ -14,5 +13,8 @@ export function useMealData() {
     queryKey: ["meal-data"],
     retry: 2
   })
-  return {...query, data: query.data?.data}
+
+  const meals = query.data?.data._embedded.mealResponseDTOList || [];
+
+  return { ...query, data: meals };
 }
