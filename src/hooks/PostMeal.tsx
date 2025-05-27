@@ -1,9 +1,14 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 import { URL_BASE } from '../config';
-import { MealData } from "../interface/MealData";
 
-const postData = async (data: MealData): AxiosPromise<any> => {
+interface MealInput {
+  name: string;
+  description: string;
+  image: string;
+}
+
+const postData = async (data: MealInput): AxiosPromise<any> => {
   const token = localStorage.getItem("authToken");
 
   try {
@@ -13,6 +18,7 @@ const postData = async (data: MealData): AxiosPromise<any> => {
       },
       withCredentials: true
     });
+    console.error(response)
     return response;
   } catch (error: any) {
     throw error;
@@ -26,7 +32,7 @@ export function useMealDataMutate() {
     mutationFn: postData,
     retry: 2,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["meal-data"] as const });
+      queryClient.invalidateQueries({ queryKey: ["meal-data"] });
     }
   });
   return mutate;

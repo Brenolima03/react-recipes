@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 import { URL_BASE } from '../config';
-import { MealDataResponse } from "../interface/MealData";
+import { MealData } from "../interface/MealData";
 
-const fetchData = async (): AxiosPromise<MealDataResponse> => {
+const fetchData = async (): AxiosPromise<MealData> => {
   return axios.get(URL_BASE + "/meals");
 }
 
@@ -12,9 +12,10 @@ export function useMealData() {
     queryFn: fetchData,
     queryKey: ["meal-data"],
     retry: 2
-  })
+  });
 
-  const meals = query.data?.data._embedded.mealResponseDTOList || [];
+  // Fix: correctly access mealList from _embedded
+  const meals = query.data?.data._embedded?.mealList || [];
 
   return { ...query, data: meals };
 }

@@ -3,10 +3,17 @@ export interface Meal {
   name: string;
   description: string;
   image: string;
+  _links: {
+    self: { href: string };
+    meals: { href: string };
+  };
 }
 
-export interface MealDataResponse {
+export interface MealData {
   _embedded: {
-    mealResponseDTOList: Meal[];
+    mealList: Meal[];
+  };
+  _links: {
+    self: { href: string };
   };
 }

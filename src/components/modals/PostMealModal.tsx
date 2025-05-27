@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useMealDataMutate } from '../../hooks/PostMeal';
-import { MealData } from '../../interface/MealData';
 import "./Modal.css";
 
 interface InputProps {
@@ -47,13 +46,7 @@ export function CreateModal({ closeModal }: ModalProps){
       return;
     }
 
-    const mealData: MealData = {
-      name,
-      image,
-      description
-    };
-  
-    mutate(mealData);
+    mutate({ name, image, description });
   }
 
   useEffect(() => {

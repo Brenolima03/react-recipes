@@ -4,13 +4,13 @@ import { useMealData } from '../../hooks/GetMeals'
 import { Card } from '../card/Card'
 import { CreateModal } from '../modals/PostMealModal'
 import './HomePage.css'
-import { MealData } from '../../interface/MealData'
+import { Meal } from '../../interface/MealData'
 import { MealCardModal } from '../modals/MealCardModal'
 
 export function HomePage() {
   const { data } = useMealData()
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
-  const [selectedMeal, setSelectedMeal] = useState<MealData | null>(null)
+  const [selectedMeal, setSelectedMeal] = useState<Meal | null>(null);
   const checkUserIsLoggedIn = () => {
     return localStorage.getItem("authToken")
   }
